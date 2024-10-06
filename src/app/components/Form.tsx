@@ -27,6 +27,13 @@ export function Form() {
         register={register}
         error={errors.name}
       />
+      <FormField
+        type="number"
+        placeholder="Enter a number between 1 and 100"
+        name="squidPercent"
+        register={register}
+        error={errors.squidPercent}
+      />
       <button type="submit">Submit</button>
     </form>
   );
