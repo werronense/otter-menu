@@ -4,12 +4,13 @@ import { z, ZodType } from "zod";
 export type FormData = {
   name: string;
   squidPercent: number;
+  paleContents: string;
 };
 
 export type FormFieldProps = {
   type: string;
   placeholder: string;
-  name: "name" | "squidPercent";
+  name: "name" | "squidPercent" | "paleContents";
   register: UseFormRegister<FormData>;
   error: FieldError | undefined;
 };
@@ -20,4 +21,5 @@ export const OrderSchema: ZodType<FormData> = z.object({
     .number({ coerce: true })
     .min(1, { message: "Enter a number no lower than 1" })
     .max(100, { message: "Enter a number no higher than 100" }),
+  paleContents: z.string({ message: "Select a meal type" }),
 });
