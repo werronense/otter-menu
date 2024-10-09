@@ -3,8 +3,8 @@ import { z, ZodType } from "zod";
 
 export type FormData = {
   name: string;
-  squidPercent: number;
   paleContents: string;
+  squidPercent?: number;
 };
 
 export type FormFieldProps = {
@@ -17,9 +17,9 @@ export type FormFieldProps = {
 
 export const OrderSchema: ZodType<FormData> = z.object({
   name: z.string().min(1),
+  paleContents: z.string({ message: "Select a meal type" }),
   squidPercent: z
     .number({ coerce: true })
     .min(1, { message: "Enter a number no lower than 1" })
     .max(100, { message: "Enter a number no higher than 100" }),
-  paleContents: z.string({ message: "Select a meal type" }),
 });
