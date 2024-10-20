@@ -16,7 +16,7 @@ export type FormFieldProps = {
 };
 
 export const OrderSchema: ZodType<FormData> = z.object({
-  name: z.string().min(1),
+  name: z.string().min(1, { message: "Enter a name for the order" }),
   paleContents: z.string({ message: "Select a meal type" }),
   squidPercent: z
     .number({ coerce: true })
