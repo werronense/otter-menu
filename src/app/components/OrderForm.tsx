@@ -33,12 +33,12 @@ export function OrderForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="mt-8">
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="min-h-28">
               <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input placeholder="Enter name for order" {...field} />
@@ -51,7 +51,7 @@ export function OrderForm() {
           control={form.control}
           name="paleContents"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="mb-8">
               <FormLabel>Select seafood for your lunch pale:</FormLabel>
               <FormControl>
                 <RadioGroup
@@ -62,13 +62,13 @@ export function OrderForm() {
                     <FormControl>
                       <RadioGroupItem value="clams" />
                     </FormControl>
-                    <FormLabel>Clams Only</FormLabel>
+                    <FormLabel className="ml-2">Clams Only</FormLabel>
                   </FormItem>
                   <FormItem>
                     <FormControl>
                       <RadioGroupItem value="combo" />
                     </FormControl>
-                    <FormLabel>Clam + Squid Combo</FormLabel>
+                    <FormLabel className="ml-2">Clam + Squid Combo</FormLabel>
                   </FormItem>
                 </RadioGroup>
               </FormControl>
@@ -80,10 +80,13 @@ export function OrderForm() {
             control={form.control}
             name="squidPercent"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="min-h-28">
                 <FormLabel>Percent (%) Squid</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter a number between 1 and 100" {...field} />
+                  <Input
+                    placeholder="Enter a number between 1 and 100"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
